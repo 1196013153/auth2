@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://ye1998.host:3306/auth2
+    username: root
+    password: 135246
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8080
