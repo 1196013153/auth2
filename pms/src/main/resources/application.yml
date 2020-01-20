@@ -6,6 +6,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 server:
   port: 9000
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: abc
+  expiration: 3600
 logging:
   level:
     com.example.pms.mapper: debug
