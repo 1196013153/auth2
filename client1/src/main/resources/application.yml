@@ -16,4 +16,3 @@ security:
     resource:
       jwt:
         key-uri: http://localhost:8080/oauth/token_key
-        key-value: cjs

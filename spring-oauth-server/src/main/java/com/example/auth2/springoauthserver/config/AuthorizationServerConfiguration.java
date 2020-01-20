@@ -47,12 +47,13 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient("SampleClientId") // clientId, 可以类比为用户名
-                .secret(passwordEncoder.encode(passwordEncoder.encode("secret"))) // secret， 可以类比为密码
-                .authorizedGrantTypes("authorization_code,refresh_token")    // 授权类型，这里选择授权码
+                .secret(passwordEncoder.encode("secret")) // secret， 可以类比为密码
+                .authorizedGrantTypes("authorization_code")    // 授权类型，这里选择授权码
                 .scopes("all") // 授权范围
                 .autoApprove(true) // 自动认证
-                .redirectUris("http://localhost:8082/login")    // 认证成功重定向URL
-                .accessTokenValiditySeconds(10); // 超时时间，10s
+//                .redirectUris("http://localhost:8082/login");    // 认证成功重定向URL
+                .redirectUris("http://example.com") ;   // 认证成功重定向URL
+//                .accessTokenValiditySeconds(10); // 超时时间，10s
        // clients.jdbc(dataSource);
     }
 

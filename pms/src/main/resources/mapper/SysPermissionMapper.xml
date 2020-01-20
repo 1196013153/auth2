@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.pms.mapper.SysPermissionMapper">
+    <select id="listPermissionByUsername" resultType="com.example.pms.entity.SysPermission">
+        SELECT
+            distinct sp.*
+        FROM
+            sys_user su
+            LEFT JOIN sys_user_role_relation sur
+            LEFT JOIN sys_role sr
+            LEFT JOIN sys_role_permission_relation srp
+            LEFT JOIN sys_permission sp
+        WHERE
+         su.id = sur.user_id
+         AND sur.role_id = sr.id
+         AND sr.id = srp.role_id
+         AND srp.permission_id = sp.id
+         AND su.username = #{username}
+    </select>
+</mapper>
